@@ -66,10 +66,12 @@ func main() {
 		return
 	}
 
+	// ANALYSE right (generate DB)
 	target(rightPath)
 	log.Println("============================================")
 	log.Println("============================================")
 	log.Println("============================================")
+	// REMOVE from left
 	source(leftPath)
 
 }
@@ -143,7 +145,9 @@ func source(searchDir string) {
 			log.Println("LEN= ", cntRows)
 			if cntRows != 0 {
 				log.Println("===> REMOVE file: ", path)
-				//os.Remove?
+				if err := os.Remove(path); err != nil {
+					log.Fatal("ERROR trying to remove: ", path, err)
+				}
 				cnt++
 			}
 		}
