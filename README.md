@@ -1,2 +1,6 @@
 # cleaner
-Golang script to remove from LEFT folder files present anywhere in RIGHT folder
+Golang script to remove from LEFT folder - files present anywhere in RIGHT folder.
+run this to see the parameters :
+./cleaner -h
+
+!!! USE AT YOUR OWN RISK !!!
