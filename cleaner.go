@@ -82,11 +82,13 @@ func target(searchDir string) {
 	//fileList := []string{}
 	err := filepath.Walk(searchDir, func(path string, f os.FileInfo, err error) error {
 		log.Println("***")
-		log.Println("R-Path: ", path)
-		log.Println("R-IsDir: ", f.IsDir())
-		log.Println("R-Name: ", f.Name())
-		log.Println("R-Size: ", f.Size())
-		log.Println("R-ModTime: ", f.ModTime())
+		/*
+			log.Println("R-Path: ", path)
+			log.Println("R-IsDir: ", f.IsDir())
+			log.Println("R-Name: ", f.Name())
+			log.Println("R-Size: ", f.Size())
+			log.Println("R-ModTime: ", f.ModTime())
+		*/
 		if !f.IsDir() {
 			add := `INSERT INTO right (Name, Size, ModifDate, Path)
 					VALUES('` + f.Name() + `', '` + strconv.FormatInt(f.Size(), 10) + `', '` + f.ModTime().Format(time.RFC3339) + `', '` + path + `')
